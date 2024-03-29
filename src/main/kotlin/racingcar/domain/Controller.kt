@@ -17,10 +17,14 @@ class GameController(
 
     }
 
-}
     private fun createCars(): List<Car> {
         val names = inputView.inputCarNames()
         return names.map { name -> Car(name) }
+    }
+
+    private fun roundCount(): Int {
+        val repeatInput = inputView.inputRoundCount()
+        return repeatInput
     }
 
 fun game(repeatInput: Int, cars: List<Car>) {
