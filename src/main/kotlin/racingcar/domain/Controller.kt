@@ -34,21 +34,19 @@ fun game(repeatInput: Int, cars: List<Car>) {
     }
 }
 
-fun round(cars: List<Car>) {
-    for (car in cars) {
-        car.move()
-        print("${car.name} : ")
-        repeat(car.position) {
-            print("-")
+    private fun round(cars: List<Car>) {
+//        for (car in cars) {
+//            car.move()
+//            print("${car.name} : ")
+//            repeat(car.position) {
+//                print("-")
+//            }
+//            println("")
+//        }
+        cars.forEach { car ->
+            car.move()
+            outputView.printCarMove(car.name, car.position)
         }
-        println("")
-    }
-}
-
-fun createCars(names: List<String>): List<Car> {
-    val cars = mutableListOf<Car>()
-    for (i in 0..<names.size) {
-        cars.add(Car(names[i]))
     }
     return cars
 }
