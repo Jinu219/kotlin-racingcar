@@ -18,6 +18,10 @@ class GameController(
     }
 
 }
+    private fun createCars(): List<Car> {
+        val names = inputView.inputCarNames()
+        return names.map { name -> Car(name) }
+    }
 
 fun game(repeatInput: Int, cars: List<Car>) {
     for (round in 1..repeatInput) {
