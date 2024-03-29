@@ -1,11 +1,21 @@
 package racingcar
 
-fun main() {
-    val names: List<String> = inputNames()
-    val cars = createCars(names)
-    val repeatInput = roundCount()
-    game(repeatInput, cars)
-    winner(cars)
+import racingcar.view.InputView
+import racingcar.view.OutputView
+
+class GameController(
+    private val inputView: InputView,
+    private val outputView: OutputView
+) {
+    fun start() {
+//        val names: List<String> = inputNames()
+        val cars = createCars()
+        val repeatInput = roundCount()
+        game(repeatInput, cars)
+        val winners = Jugdement().winner(cars)
+        outputView.printWinnersName(winners.map {car -> car.name})
+
+    }
 
 }
 
